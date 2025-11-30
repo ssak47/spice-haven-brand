@@ -60,9 +60,10 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23CD853F" width="1200" height="600"/><circle fill="%23D2691E" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%238B4513" cx="800" cy="400" r="120" opacity="0.3"/><circle fill="%23A0522D" cx="1000" cy="200" r="60" opacity="0.3"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(210, 105, 30, 0.7)), 
+                        radial-gradient(circle at 20% 30%, #CD853F 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, #D2691E 0%, transparent 50%),
+                        #A0522D;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -99,6 +100,7 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background: #B8541A;
         }
         
         .features {
@@ -215,6 +217,11 @@
             
             nav ul {
                 gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
             }
         }
     </style>
