@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spice Haven - Premium Artisan Spices</title>
+    <title>LibraryHub - Modern Library Management System</title>
     <style>
         * {
             margin: 0;
@@ -12,20 +12,21 @@
         }
         
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+            background: #f5f5f5;
         }
         
         header {
-            background: linear-gradient(135deg, #FF9933 0%, #FFAA44 100%);
+            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
             color: white;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         nav {
@@ -40,7 +41,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
         
         nav ul {
@@ -53,6 +54,7 @@
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
+            font-weight: 500;
         }
         
         nav a:hover {
@@ -60,10 +62,7 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(255, 153, 51, 0.8), rgba(255, 170, 68, 0.8)), 
-                        radial-gradient(circle at 20% 30%, #FFB347 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, #FF9933 0%, transparent 50%),
-                        #FFAA44;
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
             height: 100vh;
             display: flex;
             align-items: center;
@@ -76,44 +75,58 @@
         .hero-content h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .hero-content p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: #FF9933;
-            color: white;
+            background: white;
+            color: #2980B9;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.1rem;
+            font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-            background: #E68A2E;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
         
         .features {
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background: white;
         }
         
         .features h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #FF9933;
+            color: #2C3E50;
         }
         
         .feature-grid {
@@ -126,15 +139,14 @@
             text-align: center;
             padding: 2rem;
             border-radius: 10px;
-            background: #FFF5E6;
+            background: #ECF0F1;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s;
-            border: 2px solid #FFE4B3;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            border-color: #FF9933;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         
         .feature-icon {
@@ -143,71 +155,134 @@
         }
         
         .feature-card h3 {
-            color: #FF9933;
+            color: #2C3E50;
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
         
-        .products {
-            background: linear-gradient(135deg, #FFE4B3 0%, #FFECC9 100%);
+        .dashboard {
+            background: #f8f9fa;
             padding: 5rem 2rem;
         }
         
-        .products-container {
+        .dashboard-container {
             max-width: 1200px;
             margin: 0 auto;
         }
         
-        .products h2 {
+        .dashboard h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #FF9933;
+            color: #2C3E50;
         }
         
-        .product-grid {
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            margin-bottom: 3rem;
         }
         
-        .product-card {
+        .stat-card {
             background: white;
             border-radius: 10px;
-            overflow: hidden;
+            padding: 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border: 2px solid #FFE4B3;
+            text-align: center;
+            border-left: 4px solid #3498DB;
         }
         
-        .product-card:hover {
-            transform: scale(1.05);
-            border-color: #FF9933;
-        }
-        
-        .product-image {
-            height: 200px;
-            background: linear-gradient(135deg, #FFB347, #FF9933);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-        }
-        
-        .product-info h3 {
-            color: #FF9933;
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3498DB;
             margin-bottom: 0.5rem;
         }
         
+        .stat-label {
+            color: #7F8C8D;
+            font-size: 1.1rem;
+        }
+        
+        .management-section {
+            background: white;
+            padding: 5rem 2rem;
+        }
+        
+        .management-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .management-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2C3E50;
+        }
+        
+        .management-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .management-card {
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .management-card:nth-child(2) {
+            background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+        }
+        
+        .management-card:nth-child(3) {
+            background: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%);
+        }
+        
+        .management-card:nth-child(4) {
+            background: linear-gradient(135deg, #43E97B 0%, #38F9D7 100%);
+        }
+        
+        .management-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .management-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .management-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .management-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .management-card li:last-child {
+            border-bottom: none;
+        }
+        
         footer {
-            background: #FF9933;
+            background: #2C3E50;
             color: white;
             text-align: center;
             padding: 2rem;
+        }
+        
+        footer a {
+            color: #3498DB;
+            text-decoration: none;
         }
         
         @media (max-width: 768px) {
@@ -227,17 +302,23 @@
             .logo {
                 font-size: 1.3rem;
             }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">🌶️ SPICE HAVEN</div>
+            <div class="logo">📚 LibraryHub</div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">About</a></li>
-                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#management">Management</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -245,86 +326,127 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Spice Haven</h1>
-            <p>Premium Artisan Spices from Around the World</p>
-            <a href="#products" class="cta-button">Explore Our Collection</a>
+            <h1>LibraryHub</h1>
+            <p>Complete Library Management System for Modern Libraries</p>
+            <div class="cta-buttons">
+                <a href="#dashboard" class="cta-button">View Dashboard</a>
+                <a href="#management" class="cta-button secondary">Explore Features</a>
+            </div>
         </div>
     </section>
 
     <section class="features" id="features">
-        <h2>Why Choose Spice Haven?</h2>
+        <h2>Key Features</h2>
         <div class="feature-grid">
             <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Globally Sourced</h3>
-                <p>We travel the world to bring you the finest spices from their countries of origin, ensuring authentic flavors and premium quality.</p>
+                <div class="feature-icon">📖</div>
+                <h3>Book Cataloging</h3>
+                <p>Comprehensive book management with ISBN tracking, categories, authors, publishers, and detailed metadata for your entire collection.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🌱</div>
-                <h3>100% Organic</h3>
-                <p>All our spices are certified organic, grown without pesticides or chemicals, for pure and natural taste in every dish.</p>
+                <div class="feature-icon">👥</div>
+                <h3>Member Management</h3>
+                <p>Complete member profiles with borrowing history, membership status, contact information, and automated notifications.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3>Freshly Ground</h3>
-                <p>We grind our spices in small batches to preserve their essential oils and deliver maximum flavor and aroma to your kitchen.</p>
+                <div class="feature-icon">🔄</div>
+                <h3>Circulation System</h3>
+                <p>Streamlined check-in/check-out process with due date tracking, automatic reminders, and fine calculation for overdue items.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Advanced Search</h3>
+                <p>Powerful search functionality by title, author, ISBN, category, or keywords with filters and sorting options.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Analytics & Reports</h3>
+                <p>Detailed reports on circulation statistics, popular books, member activity, and inventory management insights.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Notifications</h3>
+                <p>Automated email and SMS notifications for due dates, reservations, new arrivals, and library announcements.</p>
             </div>
         </div>
     </section>
 
-    <section class="products" id="products">
-        <div class="products-container">
-            <h2>Our Signature Collection</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <div class="product-image">🌶️</div>
-                    <div class="product-info">
-                        <h3>Kashmiri Chili</h3>
-                        <p>Vibrant red color with mild heat. Perfect for adding color and subtle spice to your dishes.</p>
-                    </div>
+    <section class="dashboard" id="dashboard">
+        <div class="dashboard-container">
+            <h2>Library Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">12,547</div>
+                    <div class="stat-label">Total Books</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">🧡</div>
-                    <div class="product-info">
-                        <h3>Turmeric Gold</h3>
-                        <p>Premium grade turmeric with high curcumin content. Anti-inflammatory and full of flavor.</p>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">3,892</div>
+                    <div class="stat-label">Active Members</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">🌿</div>
-                    <div class="product-info">
-                        <h3>Cardamom Pods</h3>
-                        <p>Green cardamom from Kerala. Aromatic and sweet, perfect for both savory and sweet dishes.</p>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,234</div>
+                    <div class="stat-label">Books Issued</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">⭐</div>
-                    <div class="product-info">
-                        <h3>Star Anise</h3>
-                        <p>Whole star anise from China. Sweet licorice flavor ideal for broths and baking.</p>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Overdue Items</div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">🟤</div>
-                    <div class="product-info">
-                        <h3>Cinnamon Sticks</h3>
-                        <p>Ceylon cinnamon from Sri Lanka. True cinnamon with delicate, sweet flavor.</p>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="management-section" id="management">
+        <div class="management-container">
+            <h2>Management Modules</h2>
+            <div class="management-grid">
+                <div class="management-card">
+                    <h3>📚 Book Management</h3>
+                    <ul>
+                        <li>✓ Add/Edit/Delete Books</li>
+                        <li>✓ ISBN & Barcode Support</li>
+                        <li>✓ Category Management</li>
+                        <li>✓ Stock Tracking</li>
+                        <li>✓ Book Reservations</li>
+                    </ul>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">⚫</div>
-                    <div class="product-info">
-                        <h3>Black Peppercorns</h3>
-                        <p>Tellicherry peppercorns from India. Bold, complex flavor with perfect heat.</p>
-                    </div>
+                <div class="management-card">
+                    <h3>👤 Member Management</h3>
+                    <ul>
+                        <li>✓ Member Registration</li>
+                        <li>✓ Profile Management</li>
+                        <li>✓ Membership Plans</li>
+                        <li>✓ Borrowing History</li>
+                        <li>✓ Fine Management</li>
+                    </ul>
+                </div>
+                <div class="management-card">
+                    <h3>🔄 Circulation</h3>
+                    <ul>
+                        <li>✓ Issue Books</li>
+                        <li>✓ Return Books</li>
+                        <li>✓ Renew Books</li>
+                        <li>✓ Reserve Books</li>
+                        <li>✓ Due Date Tracking</li>
+                    </ul>
+                </div>
+                <div class="management-card">
+                    <h3>📈 Reports & Analytics</h3>
+                    <ul>
+                        <li>✓ Circulation Reports</li>
+                        <li>✓ Popular Books</li>
+                        <li>✓ Member Statistics</li>
+                        <li>✓ Financial Reports</li>
+                        <li>✓ Inventory Reports</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <footer id="contact">
-        <p>&copy; 2025 Spice Haven. All rights reserved.</p>
-        <p>Contact: hello@spicehaven.com | +1 (555) 123-4567</p>
+        <p>&copy; 2025 LibraryHub. All rights reserved.</p>
+        <p>Contact: support@libraryhub.com | +1 (555) 987-6543</p>
+        <p><a href="#home">Privacy Policy</a> | <a href="#home">Terms of Service</a></p>
     </footer>
 </body>
 </html>
